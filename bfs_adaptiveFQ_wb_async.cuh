@@ -1092,7 +1092,7 @@ void BFS_ControlFlow(param_t padding, string dataset, param_t init, param_t adap
                 cudaMemset(small_CNT1, 0, sizeof(param_t));
                 cudaMemset(med_CNT1, 0, sizeof(param_t));
                 cudaMemset(large_CNT1, 0, sizeof(param_t));                
-                 H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
+             //    H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
            double t2_ = wtime();
                 iter[level[0]] = (t2-t1)+(t2_-t1_);
                 T2 += (t2 - t1);
@@ -1104,7 +1104,7 @@ void BFS_ControlFlow(param_t padding, string dataset, param_t init, param_t adap
                 cudaMemset(small_FQ1, -1, vert_count * sizeof(param_t));
                 cudaMemset(medium_FQ1, -1, vert_count * sizeof(param_t));
                 cudaMemset(large_FQ1, -1, vert_count * sizeof(param_t));
-                  H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
+                 // H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
                double t4=wtime();
                 T2 += (t4-t3);
             }
@@ -1173,7 +1173,7 @@ void BFS_ControlFlow(param_t padding, string dataset, param_t init, param_t adap
                 H_ERR(cudaMemcpy(small_CNT, small_cnt, sizeof(param_t), cudaMemcpyHostToDevice));
                 H_ERR(cudaMemcpy(medium_CNT, medium_cnt, sizeof(param_t), cudaMemcpyHostToDevice));
                 H_ERR(cudaMemcpy(large_CNT, large_cnt, sizeof(param_t), cudaMemcpyHostToDevice));
-                   H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
+           //        H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
              double t1=wtime();
                 cudaMemset(s_count, 0, (BlockDim*GridDim) * sizeof(param_t));
                 cudaMemset(m_count, 0, (BlockDim*GridDim) * sizeof(param_t));
@@ -1181,7 +1181,7 @@ void BFS_ControlFlow(param_t padding, string dataset, param_t init, param_t adap
                 cudaMemset(s_offset, -1, (BlockDim*GridDim+1) * sizeof(param_t));
                 cudaMemset(m_offset, -1, (BlockDim*GridDim+1) * sizeof(param_t));
                 cudaMemset(l_offset, -1, (BlockDim*GridDim+1) * sizeof(param_t));
-                    H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
+            //        H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
              double t2=wtime();
                 T3 += (t2-t1);
                 double time = 0;
@@ -1218,7 +1218,7 @@ void BFS_ControlFlow(param_t padding, string dataset, param_t init, param_t adap
                 //counter[0] = BlockDim*GridDim;
                 H_ERR(cudaMalloc((void **)&d_counter, sizeof(param_t)));
                 H_ERR(cudaMemcpy(d_counter, counter, sizeof(param_t), cudaMemcpyHostToDevice));
-                 H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
+              //   H_ERR(cudaDeviceSynchronize());//Added anil test for synchronize
 
                 double t7 = wtime();
 
